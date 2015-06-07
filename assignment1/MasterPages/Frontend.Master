@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Frontend.master.cs" Inherits="assignment1.MasterPages.Frontend" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Styles -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <form id="form1" runat="server">
+            <div id="PageWrapper">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">My Web App</a>
+                    </div>
+                    <!-- /.navbar-header" -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="contact.aspx">Contact</a></li>
+                        </ul>
+                        <!-- /.nav navbar-nav -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="about.aspx">About</a></li>
+                        </ul>
+                        <!-- /.nav navbar-nav navbar-right -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+
+                </nav>
+                <!--/.navbar navbar-default -->
+
+
+                <section id="MainContent">
+                    <asp:ContentPlaceHolder ID="cpMainContent" runat="server"></asp:ContentPlaceHolder>
+                </section>
+                <footer>
+                    <nav class=" navbar navbar-inverse navbar-fixed-bottom">
+                        <div class="container-fluid">
+                            <h4 class="navbar-text">&copy Copyright <%=DateTime.Now.Year.ToString()%></h4>
+                        </div>
+                    </nav>
+                </footer>
+            </div>
+        </form>
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Scripts -->
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
