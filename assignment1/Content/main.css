@@ -1,10 +1,14 @@
 ﻿body {
   /* Margin bottom by footer height so that sticky footer doesnt cover*/
    margin-bottom: 60px;
-   background-color:ActiveCaption;
+   background-color:#ccc;
 }
 .game-container h2{
     text-align:center;
+    font-family: 'Roboto Slab', serif;
+    font-weight:bold;
+    text-decoration:underline;
+    color:#2c699e;
 }
 /*gives some spacing between radio btn and its label*/
 .game-container label{
@@ -26,13 +30,16 @@
     padding-top: 5px;
     text-align: right;
     width: 140px;
+    font-family: 'Roboto Slab', serif;
+    font-weight:bold;
 }
 
 form{
-    background-color:AppWorkspace;
+    background-color:azure;
     border-radius:7px;
     padding:10px;
 }
+
 /*summary button*/
 #buttonDiv{
     text-align:right;

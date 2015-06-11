@@ -23,11 +23,11 @@
                     </div>
                     <div>
                         <asp:Label  ID="pointsAllowedLabel1" runat="server" Text="Points Allowed:"></asp:Label>
-                        <asp:TextBox ID="pointsAllowedTextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="pointsAllowedTextBox1"  runat="server"></asp:TextBox>
                     </div>
                     <div>
                         <asp:Label  ID="spectatorsLabel1" runat="server" Text="Spectators:"></asp:Label>
-                        <asp:TextBox ID="spectatorsTextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="spectatorsTextBox1"  runat="server"></asp:TextBox>
                     </div>
                 </div><!-- /.game-container -->
                   <div class="col-md-6 col-lg-3 game-container">
