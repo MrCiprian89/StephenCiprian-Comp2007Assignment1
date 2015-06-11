@@ -3,6 +3,11 @@
    margin-bottom: 60px;
    background-color:#ccc;
 }
+form{
+    background-color:lavender;
+    border-radius:7px;
+    padding:10px;
+}
 .game-container h2{
     text-align:center;
     font-family: 'Roboto Slab', serif;
@@ -21,7 +26,7 @@
     display:inline-block;
     vertical-align:middle;
     margin-left:20px;
-    border-radius:5px;
+    border-radius:3px;
 }
 /*labels in form*/
 .game-container span {
@@ -32,12 +37,6 @@
     width: 140px;
     font-family: 'Roboto Slab', serif;
     font-weight:bold;
-}
-
-form{
-    background-color:azure;
-    border-radius:7px;
-    padding:10px;
 }
 
 /*summary button*/
@@ -75,3 +74,11 @@ form{
     }
 }
 
+/* JQUERY Validation elements*/
+label.error{
+    color:red;
+}
+input.error{
+    border-color:red;
+    border-style:solid;
+}
