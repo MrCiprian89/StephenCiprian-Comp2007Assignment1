@@ -2,6 +2,12 @@
   /* Margin bottom by footer height so that sticky footer doesnt cover*/
    margin-bottom: 60px;
    background-color:#ccc;
+   position:relative;
+}
+#test{
+    height:40px;
+    width:40px;
+    background-color:chartreuse;
 }
 form{
     padding:10px;
@@ -9,7 +15,7 @@ form{
 .panel{
     padding:0;
 }
-h1{
+#summary-section h3, h1{
     text-align:center;
     font-weight:bold;
     font-family: 'Roboto Slab', serif;
@@ -50,8 +56,33 @@ h1{
 #buttonDiv{
     text-align:right;
 }
-#buttonDiv input{
+#buttonDiv input,button{
     margin-top:20px;
+}
+#buttonDiv button{
+    background-color:none;
+    border-radius:6px;
+    margin-top:21px;
+}
+#buttonDiv img{
+        height:45.4545px;
+        width:45.4545px;
+        border-radius:6px;
+        border:1px solid gray;
+        margin-top:20px;
+}
+#summary-section span{
+    font-size:1.2em;
+    display:block;
+    text-align:center;
+    color:dimgray;
+    padding:5px 0;
+}
+#summary-section span:nth-child(2n+2) {
+    background-color:lightsteelblue;
+}
+#label-container{
+    margin:auto;
 }
 /* mobile media query*/
 @media only screen and (max-width : 395px) {

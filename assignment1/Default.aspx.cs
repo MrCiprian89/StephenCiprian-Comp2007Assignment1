@@ -22,14 +22,15 @@ namespace assignment1
             scoredTextBox = new TextBox[NUMOFGAMES] { pointsScoredTextBox1, pointsScoredTextBox2, pointsScoredTextBox3, pointsScoredTextBox4 };
             allowedTextBox = new TextBox[NUMOFGAMES] { pointsAllowedTextBox1, pointsAllowedTextBox2, pointsAllowedTextBox3, pointsAllowedTextBox4 };
             spectatorTextBox = new TextBox[NUMOFGAMES] { spectatorsTextBox1, spectatorsTextBox2, spectatorsTextBox3, spectatorsTextBox4 };
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "ScrollToADiv", "setTimeout(scrollToDiv, 1);", true);
         }
 
         protected void summaryButton_Click(object sender, EventArgs e)
         {
-            Label1.Text = isNotEqual(scoredTextBox, allowedTextBox).ToString();
             if (isNotempty(Form)) {
                 if (isPositive(Form)){
                     if (isNotEqual(scoredTextBox, allowedTextBox)){
+                                    Panel1.Visible = true;
                                     Label1.Text = "Total Games Won: " + gamesWon(radioButtons).ToString();
                                     Label2.Text = "Total Games Lost: " + gamesLost(radioButtons).ToString();
                                     Label3.Text = "Winning Percentage: " + ((gamesWon(radioButtons) / 4.00) * 100).ToString() + "%";
@@ -38,32 +39,11 @@ namespace assignment1
                                     Label6.Text = "Total Point Differential: " + (calculateTotal(scoredTextBox) - calculateTotal  (allowedTextBox)).ToString();
                                     Label7.Text = "Total Spectators: " + calculateTotal(spectatorTextBox).ToString();
                                     Label8.Text = "Average Number of Spectators: " + (calculateTotal(spectatorTextBox) /  NUMOFGAMES).ToString();
-                                }
-                            }
-                        }           
+                                   
+                                }//END if isNotEqual
+                            }//END if isPositive
+                        }//END if isNotEmpty           
         }//summaryButton_Click();
-        protected void clearButton_Click(object sender, EventArgs e)
-        {
-            clearForm(Form);
-        }//END clearButton_Click()
-
-        /// <summary>
-        /// Checks the control and resets all textboxes and radio buttons
-        /// </summary>
-        /// <param name="container"></param>
-        void clearForm(Control container){
-
-            foreach(var control in container.Controls){
-                if(control is TextBox)
-                {
-                    ((TextBox)control).Text = String.Empty;
-                }
-                if (control is RadioButton)
-                {
-                    ((RadioButton)control).Checked = false;
-                }
-            }
-        }//END isNotempty()
 
         /// <summary>
         /// Checks all textboxes and radioButtonList to see if theyre empty

@@ -6,13 +6,32 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
-
-    <div class="container panel panel-primary">
+    <!--Summary Results -Default:hidden -->
+    <asp:Panel ID="Panel1" Visible="false" runat="server">
+        <section id="summary-section" class=" container panel panel-primary">
             <div class="panel-heading">
-                    <h1 class="panel-title">Game Calculator</h1>
-                </div>
+                <h3 class="panel-title">Summary</h3>
+            </div>
+            <div id="label-container">
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+                <asp:Label ID="Label2" runat="server"></asp:Label>
+                <asp:Label ID="Label3" runat="server"></asp:Label>
+                <asp:Label ID="Label4" runat="server"></asp:Label>
+                <asp:Label ID="Label5" runat="server"></asp:Label>
+                <asp:Label ID="Label6" runat="server"></asp:Label>
+                <asp:Label ID="Label7" runat="server"></asp:Label>
+                <asp:Label ID="Label8" runat="server"></asp:Label>
+            </div>
+        </section>
+    </asp:Panel>
+
+    <!-- Main Form -->
+    <div class="container panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Game Calculator</h1>
+        </div>
         <form id="calculatorForm" runat="server">
-            <div class="row"> 
+            <div class="row">
                 <div class="col-md-6 col-lg-3 game-container">
                     <h2>Game 1</h2>
                     <asp:Label ID="resultLabel1" runat="server" Text="Result:"></asp:Label>
@@ -43,7 +62,7 @@
                     </asp:RadioButtonList>
                     <div>
                         <asp:Label ID="pointsScoredLabel2" runat="server" Text="Points Scored:"></asp:Label>
-                        <asp:TextBox ID="pointsScoredTextBox2" CssClass="numericInput scored2" notEqualTo=".allowed2"  runat="server"></asp:TextBox>
+                        <asp:TextBox ID="pointsScoredTextBox2" CssClass="numericInput scored2" notEqualTo=".allowed2" runat="server"></asp:TextBox>
                     </div>
                     <div>
                         <asp:Label ID="pointsAllowedLabel2" runat="server" Text="Points Allowed:"></asp:Label>
@@ -64,7 +83,7 @@
                     </asp:RadioButtonList>
                     <div>
                         <asp:Label ID="pointsScoredLabel3" runat="server" Text="Points Scored:"></asp:Label>
-                        <asp:TextBox ID="pointsScoredTextBox3" CssClass="numericInput scored3" notEqualTo=".allowed3"  runat="server"></asp:TextBox>
+                        <asp:TextBox ID="pointsScoredTextBox3" CssClass="numericInput scored3" notEqualTo=".allowed3" runat="server"></asp:TextBox>
                     </div>
                     <div>
                         <asp:Label ID="pointsAllowedLabel3" runat="server" Text="Points Allowed:"></asp:Label>
@@ -98,23 +117,13 @@
                 </div>
                 <!-- /.game-container -->
             </div>
-            <div id="buttonDiv">
-                <asp:Button CssClass="btn btn-warning btn-lg" ID="clearButton" runat="server" Text="Clear" OnClick="clearButton_Click" />
-                <asp:Button CssClass="btn btn-primary btn-lg" ID="summaryButton" runat="server" Text="Summary" OnClick="summaryButton_Click" />
+            <div id="buttonDiv">         
+                    <img src="Content/images/settings_icon.png" />
+                <button type="reset" class="btn btn-warning btn-lg">Clear</button>
+                <asp:Button CssClass="btn btn-primary btn-lg" runat="server" Text="Summary" OnClick="summaryButton_Click"></asp:Button>
             </div>
         </form>
     </div>
-    <asp:Panel ID="Panel1" CssClass="container panel panel-primary" runat="server" visible="true">
-        <section>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
-            <asp:Label ID="Label2" runat="server"></asp:Label>
-            <asp:Label ID="Label3" runat="server"></asp:Label>
-            <asp:Label ID="Label4" runat="server"></asp:Label>
-            <asp:Label ID="Label5" runat="server"></asp:Label>
-            <asp:Label ID="Label6" runat="server"></asp:Label>
-            <asp:Label ID="Label7" runat="server"></asp:Label>
-            <asp:Label ID="Label8" runat="server"></asp:Label>
-        </section>
-    </asp:Panel>
+
 </asp:Content>
 
