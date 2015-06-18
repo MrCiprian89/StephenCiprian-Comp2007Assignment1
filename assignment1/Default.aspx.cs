@@ -7,21 +7,38 @@ using System.Web.UI.WebControls;
 
 namespace assignment1
 {
+
     public partial class Default : System.Web.UI.Page
     {
+        RadioButtonList[] radioButtons;
+   
         protected void Page_Load(object sender, EventArgs e)
         {
-
+             radioButtons = new RadioButtonList[4]{ RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4};
         }
 
         protected void summaryButton_Click(object sender, EventArgs e)
-        {
-            Label1.Text = isNotempty(Form).ToString();
-            Label2.Text = isPositive(Form).ToString();
-            Label3.Text = isNotEqual(pointsScoredTextBox1, pointsAllowedTextBox1).ToString();
-            Label4.Text = isNotEqual(pointsScoredTextBox2, pointsAllowedTextBox2).ToString();
-            Label5.Text = isNotEqual(pointsScoredTextBox3, pointsAllowedTextBox3).ToString();
-            Label6.Text = isNotEqual(pointsScoredTextBox4, pointsAllowedTextBox4).ToString();
+        {         
+            if (isNotempty(Form)) {
+                if (isPositive(Form)){
+                    if (isNotEqual(pointsScoredTextBox1, pointsAllowedTextBox1)){
+                        if (isNotEqual(pointsScoredTextBox2, pointsAllowedTextBox2)){
+                            if (isNotEqual(pointsScoredTextBox3, pointsAllowedTextBox3)){
+                                if (isNotEqual(pointsScoredTextBox4, pointsAllowedTextBox4)){
+                                    Label1.Text = "Total Games Won: " + gamesWon(radioButtons).ToString();
+                                    Label2.Text = "Total Games Lost: " + gamesLost(radioButtons).ToString();
+                                    Label3.Text = "Winning Percentage: " + ((gamesWon(radioButtons) / 4.00) * 100).ToString() + "%";
+                                    //Label4.Text
+                                    //Label5.Text
+                                    //Label6.Text
+                                    //Label7.Text
+                                    //Label8.Text
+                                }
+                            }
+                        }
+                    }
+                }
+            }               
         }//summaryButton_Click();
         protected void clearButton_Click(object sender, EventArgs e)
         {
@@ -81,11 +98,18 @@ namespace assignment1
             {
                 if (control is TextBox)
                 {
-                   check = int.Parse(((TextBox)control).Text);
+                    try
+                    {
+                        check = int.Parse(((TextBox)control).Text);
                         if (check <= 0)
                         {
                             return false;
                         }
+                    }
+                    catch
+                    {                  
+                        return false;
+                    }
                 }
             }//END forLoop
             return isPos;
@@ -103,5 +127,29 @@ namespace assignment1
             return isDifferent;
         }//END areValuesEqual()
 
+        int gamesWon(RadioButtonList[] radioList)
+        {
+            int win=0;
+            for (int i = 0; i < radioList.Length; i++)
+            {
+                if (radioList[i].SelectedItem.Value.ToString() == "Win")
+                {
+                    win++;
+                }
+            }
+            return win;
+        }//END gamesWon()
+        int gamesLost(RadioButtonList[] radioList)
+        {
+            int loss = 0;
+            for (int i = 0; i < radioList.Length; i++)
+            {
+                if (radioList[i].SelectedItem.Value.ToString() == "Lose")
+                {
+                    loss++;
+                }
+            }
+            return loss;
+        }//END gamesLost()
     }//END class 
 }//END namespace assignment1

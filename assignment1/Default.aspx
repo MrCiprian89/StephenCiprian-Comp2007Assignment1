@@ -7,9 +7,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
 
-    <div class="container">
+    <div class="container panel panel-primary">
+            <div class="panel-heading">
+                    <h1 class="panel-title">Game Calculator</h1>
+                </div>
         <form id="calculatorForm" runat="server">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-6 col-lg-3 game-container">
                     <h2>Game 1</h2>
                     <asp:Label ID="resultLabel1" runat="server" Text="Result:"></asp:Label>
@@ -100,16 +103,18 @@
                 <asp:Button CssClass="btn btn-primary btn-lg" ID="summaryButton" runat="server" Text="Summary" OnClick="summaryButton_Click" />
             </div>
         </form>
-        <section>
-            <asp:Label ID="Label1" runat="server" ></asp:Label>
-            <asp:label id="Label2" runat="server" ></asp:label>
-            <asp:Label ID="Label3" runat="server" ></asp:Label>
-            <asp:Label ID="Label4" runat="server" ></asp:Label>
-            <asp:Label ID="Label5" runat="server" ></asp:Label>
-            <asp:Label ID="Label6" runat="server" ></asp:Label>
-            <asp:Label ID="Label7" runat="server" ></asp:Label>
-            <asp:Label ID="Label8" runat="server" ></asp:Label>
-        </section>
     </div>
+    <asp:Panel ID="Panel1" CssClass="container panel panel-primary" runat="server" visible="true">
+        <section>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:Label ID="Label2" runat="server"></asp:Label>
+            <asp:Label ID="Label3" runat="server"></asp:Label>
+            <asp:Label ID="Label4" runat="server"></asp:Label>
+            <asp:Label ID="Label5" runat="server"></asp:Label>
+            <asp:Label ID="Label6" runat="server"></asp:Label>
+            <asp:Label ID="Label7" runat="server"></asp:Label>
+            <asp:Label ID="Label8" runat="server"></asp:Label>
+        </section>
+    </asp:Panel>
 </asp:Content>
 

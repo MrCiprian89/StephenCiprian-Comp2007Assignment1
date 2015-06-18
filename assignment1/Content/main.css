@@ -4,9 +4,16 @@
    background-color:#ccc;
 }
 form{
-    background-color:lavender;
-    border-radius:7px;
     padding:10px;
+}
+.panel{
+    padding:0;
+}
+h1{
+    text-align:center;
+    font-weight:bold;
+    font-family: 'Roboto Slab', serif;
+    font-size:36px !important;
 }
 .game-container h2{
     text-align:center;

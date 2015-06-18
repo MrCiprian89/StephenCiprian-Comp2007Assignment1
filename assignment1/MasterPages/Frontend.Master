@@ -93,11 +93,15 @@
                 var target = $(param);
                 if (value) return value != target.val();
                 else return this.optional(element);
-            }, "Points Scored and Points Allowed cannot be the same value.");//END addMethod notEqualTo()
+            }, "Points scored and points allowed cannot be the same value.");//END addMethod notEqualTo()
+            $.validator.addMethod("noDecimal", function (value) {
+                return !(value % 1);
+            }, "No decimal numbers");//END addMethod noDecimal()
             $.validator.addClassRules({
                 numericInput: {
                     required: true,
-                    positiveNumber: true
+                    positiveNumber: true,
+                    noDecimal:true
                 }
             });//END addClassRules()
             $("#calculatorForm").validate({
