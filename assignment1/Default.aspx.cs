@@ -11,14 +11,22 @@ namespace assignment1
     public partial class Default : System.Web.UI.Page
     {
         RadioButtonList[] radioButtons;
+        TextBox[] scoredTextBox;
+        TextBox[] allowedTextBox;
+        TextBox[] spectatorTextBox;
    
         protected void Page_Load(object sender, EventArgs e)
         {
-             radioButtons = new RadioButtonList[4]{ RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4};
+            radioButtons = new RadioButtonList[4]{ RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4 };
+            scoredTextBox = new TextBox[4] { pointsScoredTextBox1, pointsScoredTextBox2, pointsScoredTextBox3, pointsScoredTextBox4};
+            allowedTextBox = new TextBox[4] { pointsAllowedTextBox1, pointsAllowedTextBox2, pointsAllowedTextBox3, pointsAllowedTextBox4};
+            spectatorTextBox = new TextBox[4] { spectatorsTextBox1, spectatorsTextBox2, spectatorsTextBox3, spectatorsTextBox4 };
         }
 
         protected void summaryButton_Click(object sender, EventArgs e)
-        {         
+        {
+            Label4.Text = "Total Points Scored: " + calculateTotal(scoredTextBox).ToString();
+            Label5.Text = "Total Points Allowed: " + calculateTotal(allowedTextBox).ToString();
             if (isNotempty(Form)) {
                 if (isPositive(Form)){
                     if (isNotEqual(pointsScoredTextBox1, pointsAllowedTextBox1)){
@@ -28,8 +36,8 @@ namespace assignment1
                                     Label1.Text = "Total Games Won: " + gamesWon(radioButtons).ToString();
                                     Label2.Text = "Total Games Lost: " + gamesLost(radioButtons).ToString();
                                     Label3.Text = "Winning Percentage: " + ((gamesWon(radioButtons) / 4.00) * 100).ToString() + "%";
-                                    //Label4.Text
-                                    //Label5.Text
+                                    
+                                    
                                     //Label6.Text
                                     //Label7.Text
                                     //Label8.Text
@@ -151,5 +159,15 @@ namespace assignment1
             }
             return loss;
         }//END gamesLost()
+        int calculateTotal(TextBox[] textbox)
+        {
+            int total = 0;
+            for (int i = 0; i < textbox.Length; i++)
+            {
+                total += int.Parse(textbox[i].Text);
+            }
+            return total;
+        }//END totalPointsScored()
+
     }//END class 
 }//END namespace assignment1
