@@ -93,7 +93,7 @@
                 var target = $(param);
                 if (value) return value != target.val();
                 else return this.optional(element);
-            }, "Points Scored cannot equal Points Allowed.");//END addMethod notEqualTo()
+            }, "Points Scored and Points Allowed cannot be the same value.");//END addMethod notEqualTo()
             $.validator.addClassRules({
                 numericInput: {
                     required: true,
