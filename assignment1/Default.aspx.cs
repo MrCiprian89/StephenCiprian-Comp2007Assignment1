@@ -14,39 +14,33 @@ namespace assignment1
         TextBox[] scoredTextBox;
         TextBox[] allowedTextBox;
         TextBox[] spectatorTextBox;
+        const int NUMOFGAMES = 4;
    
         protected void Page_Load(object sender, EventArgs e)
         {
-            radioButtons = new RadioButtonList[4]{ RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4 };
-            scoredTextBox = new TextBox[4] { pointsScoredTextBox1, pointsScoredTextBox2, pointsScoredTextBox3, pointsScoredTextBox4};
-            allowedTextBox = new TextBox[4] { pointsAllowedTextBox1, pointsAllowedTextBox2, pointsAllowedTextBox3, pointsAllowedTextBox4};
-            spectatorTextBox = new TextBox[4] { spectatorsTextBox1, spectatorsTextBox2, spectatorsTextBox3, spectatorsTextBox4 };
+            radioButtons = new RadioButtonList[NUMOFGAMES] { RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4 };
+            scoredTextBox = new TextBox[NUMOFGAMES] { pointsScoredTextBox1, pointsScoredTextBox2, pointsScoredTextBox3, pointsScoredTextBox4 };
+            allowedTextBox = new TextBox[NUMOFGAMES] { pointsAllowedTextBox1, pointsAllowedTextBox2, pointsAllowedTextBox3, pointsAllowedTextBox4 };
+            spectatorTextBox = new TextBox[NUMOFGAMES] { spectatorsTextBox1, spectatorsTextBox2, spectatorsTextBox3, spectatorsTextBox4 };
         }
 
         protected void summaryButton_Click(object sender, EventArgs e)
         {
-            Label4.Text = "Total Points Scored: " + calculateTotal(scoredTextBox).ToString();
-            Label5.Text = "Total Points Allowed: " + calculateTotal(allowedTextBox).ToString();
+            Label1.Text = isNotEqual(scoredTextBox, allowedTextBox).ToString();
             if (isNotempty(Form)) {
                 if (isPositive(Form)){
-                    if (isNotEqual(pointsScoredTextBox1, pointsAllowedTextBox1)){
-                        if (isNotEqual(pointsScoredTextBox2, pointsAllowedTextBox2)){
-                            if (isNotEqual(pointsScoredTextBox3, pointsAllowedTextBox3)){
-                                if (isNotEqual(pointsScoredTextBox4, pointsAllowedTextBox4)){
+                    if (isNotEqual(scoredTextBox, allowedTextBox)){
                                     Label1.Text = "Total Games Won: " + gamesWon(radioButtons).ToString();
                                     Label2.Text = "Total Games Lost: " + gamesLost(radioButtons).ToString();
                                     Label3.Text = "Winning Percentage: " + ((gamesWon(radioButtons) / 4.00) * 100).ToString() + "%";
-                                    
-                                    
-                                    //Label6.Text
-                                    //Label7.Text
-                                    //Label8.Text
+                                    Label4.Text = "Total Points Scored: " + calculateTotal(scoredTextBox).ToString();
+                                    Label5.Text = "Total Points Allowed: " + calculateTotal(allowedTextBox).ToString();
+                                    Label6.Text = "Total Point Differential: " + (calculateTotal(scoredTextBox) - calculateTotal  (allowedTextBox)).ToString();
+                                    Label7.Text = "Total Spectators: " + calculateTotal(spectatorTextBox).ToString();
+                                    Label8.Text = "Average Number of Spectators: " + (calculateTotal(spectatorTextBox) /  NUMOFGAMES).ToString();
                                 }
                             }
-                        }
-                    }
-                }
-            }               
+                        }           
         }//summaryButton_Click();
         protected void clearButton_Click(object sender, EventArgs e)
         {
@@ -123,15 +117,19 @@ namespace assignment1
             return isPos;
         }//END isPositive()
 
-        bool isNotEqual(TextBox text1, TextBox text2)
+        bool isNotEqual(TextBox[] text1, TextBox[] text2)
         {
             bool isDifferent = true;
-            int check1 = int.Parse(text1.Text);
-            int check2 = int.Parse(text2.Text);
-            if (check1 == check2)
+
+            for (int i = 0; i < text1.Length; i++)
             {
-                return false;
-            }
+                int check1 = int.Parse(text1[i].Text);
+                int check2 = int.Parse(text2[i].Text);
+                if (check1 == check2)
+                {
+                    return false;
+                }
+            }       
             return isDifferent;
         }//END areValuesEqual()
 
