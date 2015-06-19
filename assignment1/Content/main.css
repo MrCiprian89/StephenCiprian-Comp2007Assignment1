@@ -52,24 +52,17 @@ form{
     font-weight:bold;
 }
 
-/*summary button*/
 #buttonDiv{
     text-align:right;
-}
-#buttonDiv input,button{
-    margin-top:20px;
-}
-#buttonDiv button{
-    background-color:none;
+    padding-top:20px;
     border-radius:6px;
-    margin-top:21px;
 }
 #buttonDiv img{
         height:45.4545px;
         width:45.4545px;
-        border-radius:6px;
-        border:1px solid gray;
-        margin-top:20px;
+}
+#settingsButton{
+    border-radius:6px;
 }
 #summary-section span{
     font-size:1.2em;

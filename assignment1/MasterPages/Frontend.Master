@@ -105,7 +105,73 @@
             });//END addClassRules()
             $("#calculatorForm").validate({
             });//END validate()
+            $(document).ready(function () {
+                $('#1game').click(function () {
+                    $("input[id$='NumberOfGamesSelected']").val("1");
+                    $("#game2Container").addClass("hidden");
+                    $("#game3Container").addClass("hidden");
+                    $("#game4Container").addClass("hidden");
+                    $("input[id$='pointsScoredTextBox2']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox3']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox4']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox2']").removeClass("numericInput");
+                    $("input[id$='pointsScoredTextBox3']").removeClass("numericInput");
+                    $("input[id$='pointsScoredTextBox4']").removeClass("numericInput");
 
+                });
+                $('#2games').click(function () {
+                    $("input[id$='NumberOfGamesSelected']").val("2");
+                    $("#game2Container").removeClass("hidden");
+                    $("#game3Container").addClass("hidden");
+                    $("#game4Container").addClass("hidden");
+                    $("input[id$='pointsScoredTextBox2']").attr('notEqualTo','.allowed2');
+                    $("input[id$='pointsScoredTextBox3']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox4']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox2']").addClass("numericInput");
+                    $("input[id$='pointsScoredTextBox3']").removeClass("numericInput");
+                    $("input[id$='pointsScoredTextBox4']").removeClass("numericInput");
+
+                });
+                $('#3games').click(function () {
+                    $("input[id$='NumberOfGamesSelected']").val("3");
+                    $("#game2Container").removeClass("hidden");
+                    $("#game3Container").removeClass("hidden");
+                    $("#game4Container").addClass("hidden");
+                    $("input[id$='pointsScoredTextBox2']").attr('notEqualTo', '.allowed2');
+                    $("input[id$='pointsScoredTextBox3']").attr('notEqualTo', '.allowed3');
+                    $("input[id$='pointsScoredTextBox4']").removeAttr("notEqualTo");
+                    $("input[id$='pointsScoredTextBox2']").addClass("numericInput");
+                    $("input[id$='pointsScoredTextBox3']").addClass("numericInput");
+                    $("input[id$='pointsScoredTextBox4']").removeClass("numericInput");
+                    $("input[id$='pointsScoredTextBox4']").prop("disabled", true);
+
+                    $("input[id$='pointsAllowedTextBox2']").attr('notEqualTo', '.scored2');
+                    $("input[id$='pointsAllowedTextBox3']").attr('notEqualTo', '.scored3');
+                    $("input[id$='pointsAllowedTextBox4']").removeAttr("notEqualTo");
+                    $("input[id$='pointsAllowedTextBox2']").addClass("numericInput");
+                    $("input[id$='pointsAllowedTextBox3']").addClass("numericInput");
+                    $("input[id$='pointsAllowedTextBox4']").removeClass("numericInput");
+                    $("input[id$='pointsAllowedTextBox4']").prop("disabled", true);
+
+                    $("input[id$='spectatorsTextBox2']").addClass("numericInput");
+                    $("input[id$='spectatorsTextBox3']").addClass("numericInput");
+                    $("input[id$='spectatorsTextBox4']").removeClass("numericInput");
+                    $("input[id$='spectatorsTextBox4']").prop("disabled", true);
+                });
+                $('#4games').click(function () {
+                    $("input[id$='NumberOfGamesSelected']").val("4");
+                    $("#game2Container").removeClass("hidden");
+                    $("#game3Container").removeClass("hidden");
+                    $("#game4Container").removeClass("hidden");
+                    $("input[id$='pointsScoredTextBox2']").attr('notEqualTo', '.allowed2');
+                    $("input[id$='pointsScoredTextBox3']").attr('notEqualTo', '.allowed3');
+                    $("input[id$='pointsScoredTextBox4']").attr('notEqualTo', '.allowed4');
+                    $("input[id$='pointsScoredTextBox2']").addClass("numericInput");
+                    $("input[id$='pointsScoredTextBox3']").addClass("numericInput");
+                    $("input[id$='pointsScoredTextBox4']").addClass("numericInput");
+                });
+            });
+         //$(".summaryButton").addClass("disabled");
 
     </script>
 </body>

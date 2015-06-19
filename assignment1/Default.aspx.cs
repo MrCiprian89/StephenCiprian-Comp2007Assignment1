@@ -14,15 +14,15 @@ namespace assignment1
         TextBox[] scoredTextBox;
         TextBox[] allowedTextBox;
         TextBox[] spectatorTextBox;
+        //TODO remove const and make it equal to the NumberOfGamesSelected.Value
         const int NUMOFGAMES = 4;
-   
+        string variable;
         protected void Page_Load(object sender, EventArgs e)
         {
             radioButtons = new RadioButtonList[NUMOFGAMES] { RadioButtonList1, RadioButtonList2, RadioButtonList3, RadioButtonList4 };
             scoredTextBox = new TextBox[NUMOFGAMES] { pointsScoredTextBox1, pointsScoredTextBox2, pointsScoredTextBox3, pointsScoredTextBox4 };
             allowedTextBox = new TextBox[NUMOFGAMES] { pointsAllowedTextBox1, pointsAllowedTextBox2, pointsAllowedTextBox3, pointsAllowedTextBox4 };
             spectatorTextBox = new TextBox[NUMOFGAMES] { spectatorsTextBox1, spectatorsTextBox2, spectatorsTextBox3, spectatorsTextBox4 };
-            ScriptManager.RegisterStartupScript(Page, typeof(Page), "ScrollToADiv", "setTimeout(scrollToDiv, 1);", true);
         }
 
         protected void summaryButton_Click(object sender, EventArgs e)
@@ -33,6 +33,7 @@ namespace assignment1
                                     Panel1.Visible = true;
                                     Label1.Text = "Total Games Won: " + gamesWon(radioButtons).ToString();
                                     Label2.Text = "Total Games Lost: " + gamesLost(radioButtons).ToString();
+                        //TODO make 4.00 a variable of NUMOFGAMES and cast as an int
                                     Label3.Text = "Winning Percentage: " + ((gamesWon(radioButtons) / 4.00) * 100).ToString() + "%";
                                     Label4.Text = "Total Points Scored: " + calculateTotal(scoredTextBox).ToString();
                                     Label5.Text = "Total Points Allowed: " + calculateTotal(allowedTextBox).ToString();
